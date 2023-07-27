@@ -30,6 +30,7 @@ protocol MarvelAPIServiceProtocol {
 
 final class MarvelAPIService: MarvelAPIServiceProtocol {
     private let basePath = MarvelApiConstants.apiUrl
+    static let shared = MarvelAPIService()
     private lazy var charactersEndpoint = "\(basePath)\(MarvelApiConstants.charactersEndpoint)"
     private lazy var comicsEndpoint = "\(basePath)\(MarvelApiConstants.charactersEndpoint)/%@\(MarvelApiConstants.comicsEndpoint)"
     
