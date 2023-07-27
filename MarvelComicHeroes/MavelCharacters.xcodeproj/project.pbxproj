@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5055C63B2A7281C30018D1DC /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5055C63A2A7281C30018D1DC /* AlamofireImage */; };
+		5055C63E2A7282220018D1DC /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5055C63D2A7282220018D1DC /* CryptoSwift */; };
+		5055C6512A7286430018D1DC /* MarvelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5055C6502A7286430018D1DC /* MarvelCharacter.swift */; };
+		5055C6532A7286740018D1DC /* MarvelComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5055C6522A7286740018D1DC /* MarvelComic.swift */; };
+		5055C6552A7287DF0018D1DC /* MarvelAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5055C6542A7287DF0018D1DC /* MarvelAPIResponse.swift */; };
+		5055C6572A7288FE0018D1DC /* MarvelAPIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5055C6562A7288FE0018D1DC /* MarvelAPIConstants.swift */; };
+		5055C65A2A728BA30018D1DC /* MarvelCharacter+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5055C6592A728BA30018D1DC /* MarvelCharacter+API.swift */; };
+		5055C65C2A728BDA0018D1DC /* MarvelComic+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5055C65B2A728BDA0018D1DC /* MarvelComic+API.swift */; };
+		5055C65E2A7294420018D1DC /* MarvelAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5055C65D2A7294420018D1DC /* MarvelAPIService.swift */; };
 		505C061C2A721D30007B229E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505C061B2A721D30007B229E /* AppDelegate.swift */; };
 		505C061E2A721D30007B229E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505C061D2A721D30007B229E /* ViewController.swift */; };
 		505C06202A721D32007B229E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 505C061F2A721D32007B229E /* Assets.xcassets */; };
@@ -34,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5055C6502A7286430018D1DC /* MarvelCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacter.swift; sourceTree = "<group>"; };
+		5055C6522A7286740018D1DC /* MarvelComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelComic.swift; sourceTree = "<group>"; };
+		5055C6542A7287DF0018D1DC /* MarvelAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIResponse.swift; sourceTree = "<group>"; };
+		5055C6562A7288FE0018D1DC /* MarvelAPIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIConstants.swift; sourceTree = "<group>"; };
+		5055C6592A728BA30018D1DC /* MarvelCharacter+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MarvelCharacter+API.swift"; sourceTree = "<group>"; };
+		5055C65B2A728BDA0018D1DC /* MarvelComic+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MarvelComic+API.swift"; sourceTree = "<group>"; };
+		5055C65D2A7294420018D1DC /* MarvelAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIService.swift; sourceTree = "<group>"; };
 		505C06182A721D30007B229E /* MavelCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MavelCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		505C061B2A721D30007B229E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		505C061D2A721D30007B229E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5055C63B2A7281C30018D1DC /* AlamofireImage in Frameworks */,
+				5055C63E2A7282220018D1DC /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,9 +90,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5055C63F2A7284C70018D1DC /* MarvelViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MarvelViewModel;
+			sourceTree = "<group>";
+		};
+		5055C6422A7285C70018D1DC /* MarvelAPI */ = {
+			isa = PBXGroup;
+			children = (
+				5055C6542A7287DF0018D1DC /* MarvelAPIResponse.swift */,
+				5055C6562A7288FE0018D1DC /* MarvelAPIConstants.swift */,
+				5055C65D2A7294420018D1DC /* MarvelAPIService.swift */,
+			);
+			path = MarvelAPI;
+			sourceTree = "<group>";
+		};
+		5055C64F2A7286280018D1DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5055C6582A728B230018D1DC /* MarvelAPIModel */,
+				5055C6502A7286430018D1DC /* MarvelCharacter.swift */,
+				5055C6522A7286740018D1DC /* MarvelComic.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5055C6582A728B230018D1DC /* MarvelAPIModel */ = {
+			isa = PBXGroup;
+			children = (
+				5055C6592A728BA30018D1DC /* MarvelCharacter+API.swift */,
+				5055C65B2A728BDA0018D1DC /* MarvelComic+API.swift */,
+			);
+			path = MarvelAPIModel;
+			sourceTree = "<group>";
+		};
 		505C060F2A721D30007B229E = {
 			isa = PBXGroup;
 			children = (
+				5055C64F2A7286280018D1DC /* Model */,
+				5055C6422A7285C70018D1DC /* MarvelAPI */,
+				5055C63F2A7284C70018D1DC /* MarvelViewModel */,
 				505C061A2A721D30007B229E /* MarvelComicHeroes */,
 				505C062C2A721D32007B229E /* MarvelComicHeroesTests */,
 				505C06362A721D32007B229E /* MarvelComicHeroesUITests */,
@@ -137,6 +194,10 @@
 			dependencies = (
 			);
 			name = MavelCharacters;
+			packageProductDependencies = (
+				5055C63A2A7281C30018D1DC /* AlamofireImage */,
+				5055C63D2A7282220018D1DC /* CryptoSwift */,
+			);
 			productName = MarvelComicHeroes;
 			productReference = 505C06182A721D30007B229E /* MavelCharacters.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +270,11 @@
 				Base,
 			);
 			mainGroup = 505C060F2A721D30007B229E;
+			packageReferences = (
+				505C06482A728180007B229E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5055C6392A7281C30018D1DC /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				5055C63C2A7282220018D1DC /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+			);
 			productRefGroup = 505C06192A721D30007B229E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -251,8 +317,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5055C6532A7286740018D1DC /* MarvelComic.swift in Sources */,
+				5055C6572A7288FE0018D1DC /* MarvelAPIConstants.swift in Sources */,
+				5055C65E2A7294420018D1DC /* MarvelAPIService.swift in Sources */,
+				5055C65A2A728BA30018D1DC /* MarvelCharacter+API.swift in Sources */,
 				505C061E2A721D30007B229E /* ViewController.swift in Sources */,
+				5055C6552A7287DF0018D1DC /* MarvelAPIResponse.swift in Sources */,
 				505C061C2A721D30007B229E /* AppDelegate.swift in Sources */,
+				5055C6512A7286430018D1DC /* MarvelCharacter.swift in Sources */,
+				5055C65C2A728BDA0018D1DC /* MarvelComic+API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -404,7 +477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -573,6 +646,46 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5055C6392A7281C30018D1DC /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+		5055C63C2A7282220018D1DC /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		505C06482A728180007B229E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5055C63A2A7281C30018D1DC /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5055C6392A7281C30018D1DC /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
+		5055C63D2A7282220018D1DC /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5055C63C2A7282220018D1DC /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 505C06102A721D30007B229E /* Project object */;
 }
