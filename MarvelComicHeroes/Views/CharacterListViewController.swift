@@ -13,6 +13,7 @@ class CharacterListViewController: NSViewController {
     @IBOutlet weak var characterListView: NSTableView!
     let blockingProgressview = MarvelBlockingProgressView()
     var characterViewModel = CharacterListViewModel()
+    var lastClickedRow = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ class CharacterListViewController: NSViewController {
         blockingProgressview.frame = view.frame
         view.addSubview(blockingProgressview, positioned: .above, relativeTo: nil)
         characterListView.dataSource = self
+        characterListView.delegate = self
         // Add observer to monitor the scrollView's content offset changes
         if let scrollView = characterListView.enclosingScrollView {
             scrollView.contentView.postsBoundsChangedNotifications = true
@@ -73,6 +75,17 @@ extension CharacterListViewController {
             }
         }
     }
+}
+
+extension CharacterListViewController: NSTableViewDelegate {
+    func tableView(_ tableView: NSTableView, shouldEdit tableColumn: NSTableColumn?, row: Int) -> Bool {
+            let clickCount = NSApp.currentEvent?.clickCount ?? 0
+            if clickCount == 2 {
+               // handleDoubleClick(tableView, row: row)
+                return true
+            }
+            return false
+        }
 }
 
 extension CharacterListViewController: MarvelHeroImageDelegate {

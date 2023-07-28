@@ -16,9 +16,6 @@ class CenteredMultilineTextFieldCell: NSTextFieldCell {
            var titleFrame = super.titleRect(forBounds: theRect)
            let titleHeight = self.attributedStringValue.heightWithConstrainedWidth(width: titleFrame.width)
            
-           if titleHeight > 100 {
-               print("")
-           }
            titleFrame.origin.y = theRect.origin.y - 1.0 + (theRect.size.height - titleHeight) / 2.0
            return titleFrame
        }
