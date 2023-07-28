@@ -9,7 +9,7 @@ import Cocoa
 
 
 class CharacterListViewController: NSViewController {
-
+    
     @IBOutlet weak var characterListView: NSTableView!
     let blockingProgressview = MarvelBlockingProgressView()
     var characterViewModel = CharacterListViewModel()
@@ -79,19 +79,36 @@ extension CharacterListViewController {
 
 extension CharacterListViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, shouldEdit tableColumn: NSTableColumn?, row: Int) -> Bool {
-            let clickCount = NSApp.currentEvent?.clickCount ?? 0
-            if clickCount == 2 {
-               // handleDoubleClick(tableView, row: row)
-                return true
-            }
-            return false
+        let clickCount = NSApp.currentEvent?.clickCount ?? 0
+        if clickCount == 2 {
+            lastClickedRow = row
+            
+            performSegueToDestination()
+            return true
         }
+        return false
+    }
 }
 
 extension CharacterListViewController: MarvelHeroImageDelegate {
     func didFinishLoadingImage(rowIndex: Int) {
         DispatchQueue.main.async {
             self.characterListView.reloadData()
+        }
+    }
+}
+
+extension CharacterListViewController {
+    func performSegueToDestination() {
+        performSegue(withIdentifier: "ShowDetail", sender: self)
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            if let destinationVC = segue.destinationController as? CharacterDetailViewController {
+                // Pass the object to the destination view controller
+                destinationVC.character = characterViewModel[lastClickedRow]
+            }
         }
     }
 }
