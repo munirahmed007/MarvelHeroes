@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 /// MarvelHero represent Hero model
 struct MarvelCharacter: Decodable {

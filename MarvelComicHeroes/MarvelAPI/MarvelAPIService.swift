@@ -56,6 +56,11 @@ final class MarvelAPIService: MarvelAPIServiceProtocol {
         performGenericRequest(withPath: path, offset: offset!, amount: amount, completion: completion)
     }
     
+    func cachedImage(for imgURL: String, with size: ImageSize) -> NSImage? {
+        let imgPath = String(format: imgURL, size.rawValue)
+        return imageCache.image(withIdentifier: imgPath)
+    }
+    
     func fetchImage(imgURL: String, with size: ImageSize, completion: @escaping(Result<NSImage, Error>) -> Void) {
         let imgPath = String(format: imgURL, size.rawValue)
         if let cachedImg = imageCache.image(withIdentifier: imgPath) {
@@ -72,7 +77,7 @@ final class MarvelAPIService: MarvelAPIServiceProtocol {
             .responseImage { [unowned self] response in
                 switch response.result {
                 case .success(let img):
-                    self.imageCache.add(img, withIdentifier: imgURL)
+                    self.imageCache.add(img, withIdentifier: imgPath)
                     completion(.success(img))
                 case .failure(let error):
                     completion(.failure(error))

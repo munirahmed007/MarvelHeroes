@@ -12,10 +12,12 @@ class CharacterListViewController: NSViewController {
 
     @IBOutlet weak var characterListView: NSTableView!
     let blockingProgressview = MarvelBlockingProgressView()
-    let characterViewModel = CharacterListViewModel()
+    var characterViewModel = CharacterListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        characterViewModel.delegate = self
         blockingProgressview.frame = view.frame
         view.addSubview(blockingProgressview, positioned: .above, relativeTo: nil)
         characterListView.dataSource = self
@@ -42,7 +44,7 @@ extension CharacterListViewController: NSTableViewDataSource {
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         guard let tableColumn = tableColumn else { return nil }
         
-        guard let attribute = CharacterAttributeEnum(rawValue: tableColumn.identifier.rawValue ) else { return nil }
+        let attribute = CharacterAttributeEnum(rawValue: tableColumn.identifier.rawValue )
         return characterViewModel[row, attribute]
     }
 }
@@ -69,6 +71,14 @@ extension CharacterListViewController {
                     self.characterListView.reloadData()
                 }
             }
+        }
+    }
+}
+
+extension CharacterListViewController: MarvelHeroImageDelegate {
+    func didFinishLoadingImage(rowIndex: Int) {
+        DispatchQueue.main.async {
+            self.characterListView.reloadData()
         }
     }
 }

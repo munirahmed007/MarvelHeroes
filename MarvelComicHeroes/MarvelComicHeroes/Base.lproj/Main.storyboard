@@ -712,7 +712,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="602"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="150" horizontalPageScroll="10" verticalLineScroll="150" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epG-m5-N7F">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="160" horizontalPageScroll="10" verticalLineScroll="160" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="epG-m5-N7F">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="602"/>
                                 <clipView key="contentView" id="DaO-TL-Iq8">
                                     <rect key="frame" x="1" y="1" width="598" height="600"/>
@@ -721,7 +721,7 @@
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="150" id="w2C-nM-RKw">
                                             <rect key="frame" x="0.0" y="0.0" width="599" height="600"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <size key="intercellSpacing" width="17" height="0.0"/>
+                                            <size key="intercellSpacing" width="17" height="10"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
@@ -738,7 +738,7 @@
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="center" title="this is so funny" id="dTy-wg-f8b">
+                                                    <textFieldCell key="dataCell" alignment="center" title="this is so funny" id="dTy-wg-f8b" customClass="CenteredMultilineTextFieldCell" customModule="MavelCharacters" customModuleProvider="target">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -750,7 +750,7 @@
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="Ddi-fB-bZW">
+                                                    <textFieldCell key="dataCell" alignment="left" title="Text Cell" id="Ddi-fB-bZW" customClass="CenteredMultilineTextFieldCell" customModule="MavelCharacters" customModuleProvider="target">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -765,8 +765,8 @@
                                     <constraint firstAttribute="width" constant="600" id="3qg-kT-PpK"/>
                                     <constraint firstAttribute="height" constant="602" id="Tpo-Te-IZw"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="r7V-w0-8Et">
-                                    <rect key="frame" x="1" y="585" width="598" height="16"/>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="r7V-w0-8Et">
+                                    <rect key="frame" x="-100" y="-100" width="598" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="gDM-TO-kH4">

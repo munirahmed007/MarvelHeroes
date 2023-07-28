@@ -14,7 +14,7 @@ enum CharacterAttributeEnum: String {
     case description = "description"
     case unknown
     
-    init?(rawValue: String) {
+    init(rawValue: String) {
         switch (rawValue) {
         case "thumbnail": self = .thumbnail
         case "title": self = .title
@@ -24,11 +24,16 @@ enum CharacterAttributeEnum: String {
     }
 }
 
+protocol MarvelHeroImageDelegate {
+    func didFinishLoadingImage(rowIndex: Int)
+}
 
 class CharacterListViewModel: NSObject {
     private var characters: [MarvelCharacter]! = []
     private let service = MarvelAPIService.shared
     private var offset = 0
+    var delegate: MarvelHeroImageDelegate?
+    
     
     // Function to load more data when needed.
     func loadData(completion: @escaping (Error?) -> Void) {
@@ -46,6 +51,22 @@ class CharacterListViewModel: NSObject {
     var count: Int {
         return characters.count
     }
+    
+    func fetchImage(for imgUrl: String?, rowIndex: Int) -> NSImage {
+        guard let imgUrl = imgUrl else { return NSImage(named: NSImage.Name("placeholder"))! }
+        
+        if let image = service.cachedImage(for: imgUrl, with: .comicList) {
+            return image
+        }
+        
+        service.fetchImage(imgURL: imgUrl, with: .comicList) { [rowIndex] result in
+            switch result {
+            case .success(_): self.delegate?.didFinishLoadingImage(rowIndex: rowIndex)
+            default: break
+            }
+        }
+        return NSImage(named: NSImage.Name("placeholder"))!
+    }
 }
 
 extension CharacterListViewModel {
@@ -53,11 +74,14 @@ extension CharacterListViewModel {
         get {
             guard index < count else { return nil }
             let character = characters[index]
-            
+            var description = (character.description ?? "No description")
+            if description.isEmpty {
+                description = "No description"
+            }
             switch (attribute){
-            case .thumbnail: return NSImage(systemSymbolName: "pencil", accessibilityDescription: nil)
+            case .thumbnail: return fetchImage(for: character.imageURL, rowIndex: index)
             case .title: return character.name
-            case .description: return character.description
+            case .description: return description
             default: return nil
             }
         }

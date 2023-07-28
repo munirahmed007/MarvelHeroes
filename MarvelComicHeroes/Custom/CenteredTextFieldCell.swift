@@ -1,43 +1,32 @@
 import Cocoa
 
+extension NSAttributedString {
+    func heightWithConstrainedWidth(width: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+
+        return boundingBox.height
+    }
+
+}
+
 class CenteredMultilineTextFieldCell: NSTextFieldCell {
-    override func cellSize(forBounds rect: NSRect) -> NSSize {
-        // Calculate the size required for the text with multiple lines
-        let textRect = rect.insetBy(dx: 4, dy: 4) // Adjust insets if needed
-        let textStorage = NSTextStorage(string: stringValue)
-        let textContainer = NSTextContainer(containerSize: NSSize(width: textRect.width, height: CGFloat.greatestFiniteMagnitude))
-        let layoutManager = NSLayoutManager()
-        
-        layoutManager.addTextContainer(textContainer)
-        textStorage.addLayoutManager(layoutManager)
-        
-        textContainer.lineFragmentPadding = 0
-        layoutManager.glyphRange(forBoundingRect: textRect, in: textContainer)
-        
-        let usedRect = layoutManager.usedRect(for: textContainer)
-        let cellSize = NSSize(width: textRect.width, height: ceil(usedRect.height) + 8) // Adjust 8 if needed
-        
-        return cellSize
-    }
-    
-    override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView) {
-        // Calculate the rectangle to draw the text inside the cell
-        let textRect = cellFrame.insetBy(dx: 4, dy: 4) // Adjust insets if needed
-        
-        // Create the text storage, text container, and layout manager
-        let textStorage = NSTextStorage(string: stringValue)
-        let textContainer = NSTextContainer(containerSize: NSSize(width: textRect.width, height: CGFloat.greatestFiniteMagnitude))
-        let layoutManager = NSLayoutManager()
-        
-        layoutManager.addTextContainer(textContainer)
-        textStorage.addLayoutManager(layoutManager)
-        
-        // Center the text vertically
-        let usedRect = layoutManager.usedRect(for: textContainer)
-        let yOffset = textRect.height - usedRect.height
-        let drawRect = NSRect(x: textRect.minX, y: textRect.minY + yOffset / 2, width: textRect.width, height: usedRect.height)
-        
-        // Draw the text
-        layoutManager.drawGlyphs(forGlyphRange: layoutManager.glyphRange(forBoundingRect: drawRect, in: textContainer), at: drawRect.origin)
-    }
+    override func titleRect(forBounds theRect: NSRect) -> NSRect
+       {
+           var titleFrame = super.titleRect(forBounds: theRect)
+           var titleHeight = self.attributedStringValue.heightWithConstrainedWidth(width: titleFrame.width)
+           
+           if titleHeight > 100 {
+               print("")
+           }
+           titleFrame.origin.y = theRect.origin.y - 1.0 + (theRect.size.height - titleHeight) / 2.0
+           return titleFrame
+       }
+
+    override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView)
+       {
+           var titleRect = self.titleRect(forBounds: cellFrame)
+
+           self.attributedStringValue.draw(in: titleRect)
+       }
 }

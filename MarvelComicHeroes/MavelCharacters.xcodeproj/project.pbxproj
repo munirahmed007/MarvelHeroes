@@ -58,6 +58,7 @@
 		5055C6642A72B73B0018D1DC /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		5055C6672A72BD1F0018D1DC /* CenteredTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredTextFieldCell.swift; sourceTree = "<group>"; };
 		5055C6692A733CDA0018D1DC /* MarvelBlockingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelBlockingProgressView.swift; sourceTree = "<group>"; };
+		5055C66B2A735E2A0018D1DC /* MavelCharacters-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MavelCharacters-Info.plist"; sourceTree = "<group>"; };
 		505C06182A721D30007B229E /* MavelCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MavelCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		505C061B2A721D30007B229E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		505C061D2A721D30007B229E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 		505C060F2A721D30007B229E = {
 			isa = PBXGroup;
 			children = (
+				5055C66B2A735E2A0018D1DC /* MavelCharacters-Info.plist */,
 				5055C6662A72BD000018D1DC /* Custom */,
 				5055C6612A72B6A80018D1DC /* Views */,
 				5055C64F2A7286280018D1DC /* Model */,
@@ -528,6 +530,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MavelCharacters-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -554,6 +557,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MavelCharacters-Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
