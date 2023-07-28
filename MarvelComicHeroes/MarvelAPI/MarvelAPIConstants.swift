@@ -26,3 +26,4 @@ struct MarvelRequestKey {
     static let marvelPrivateKey = "817c4627fbdb6d150a39d91379b474699f51eb9c"
 }
 
+let maximumItemsToFetch: Int = 20

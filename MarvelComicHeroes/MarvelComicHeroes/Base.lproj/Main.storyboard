@@ -719,7 +719,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="150" id="w2C-nM-RKw">
-                                            <rect key="frame" x="0.0" y="0.0" width="625" height="600"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="599" height="600"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -733,19 +733,19 @@
                                                     <imageCell key="dataCell" controlSize="large" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="vaa-qI-avn"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
-                                                <tableColumn identifier="AutomaticTableColumnIdentifier.1" width="453" minWidth="40" maxWidth="1000" id="ipy-Xo-fkD">
+                                                <tableColumn identifier="title" width="212" minWidth="40" maxWidth="1000" id="ipy-Xo-fkD">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="dTy-wg-f8b">
+                                                    <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="center" title="this is so funny" id="dTy-wg-f8b">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
-                                                <tableColumn width="10" minWidth="10" maxWidth="3.4028234663852886e+38" id="cZO-fU-7e7">
+                                                <tableColumn identifier="description" width="225" minWidth="10" maxWidth="3.4028234663852886e+38" id="cZO-fU-7e7">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
