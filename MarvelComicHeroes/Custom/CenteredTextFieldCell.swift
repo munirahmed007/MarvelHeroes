@@ -14,7 +14,7 @@ class CenteredMultilineTextFieldCell: NSTextFieldCell {
     override func titleRect(forBounds theRect: NSRect) -> NSRect
        {
            var titleFrame = super.titleRect(forBounds: theRect)
-           var titleHeight = self.attributedStringValue.heightWithConstrainedWidth(width: titleFrame.width)
+           let titleHeight = self.attributedStringValue.heightWithConstrainedWidth(width: titleFrame.width)
            
            if titleHeight > 100 {
                print("")
@@ -25,8 +25,7 @@ class CenteredMultilineTextFieldCell: NSTextFieldCell {
 
     override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView)
        {
-           var titleRect = self.titleRect(forBounds: cellFrame)
-
+           let titleRect = self.titleRect(forBounds: cellFrame)
            self.attributedStringValue.draw(in: titleRect)
        }
 }
