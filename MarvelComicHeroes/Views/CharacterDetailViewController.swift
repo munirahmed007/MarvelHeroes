@@ -38,7 +38,7 @@ class CharacterDetailViewController: NSViewController {
         
         characterDescription.stringValue = String(from: character.description)
         comicViewModel = ComicListViewModel(character: character)
-     
+        comicViewModel.delegate = self
         characterImage.image = comicViewModel.fetchImage(for: character.imageURL, rowIndex: -1)
         blockingProgressview.show()
         comicViewModel.loadData { error in
@@ -57,6 +57,19 @@ class CharacterDetailViewController: NSViewController {
             comicViews.append(view)
             stackView.addArrangedSubview(view)
             view.display()
+        }
+    }
+}
+
+extension CharacterDetailViewController: MarvelHeroImageDelegate {
+    func didFinishLoadingImage(rowIndex: Int) {
+        guard rowIndex >= 0 else { return }
+        DispatchQueue.main.async {
+            let comic = self.comicViewModel[rowIndex]!
+            let view = self.comicViews[rowIndex]
+            
+            let description = String(from: comic.title)
+            view.setupSubviews(image: self.comicViewModel.fetchImage(for: comic.imageURL, rowIndex: rowIndex), description: description)
         }
     }
 }

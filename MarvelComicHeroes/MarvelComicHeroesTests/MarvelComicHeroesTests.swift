@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import MarvelComicHeroes
+@testable import MavelCharacters
 
 final class MarvelComicHeroesTests: XCTestCase {
 
