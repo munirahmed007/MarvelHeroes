@@ -49,6 +49,8 @@ class CharacterDetailViewController: NSViewController {
     }
     
     func setupViewComicList() {
+        guard comicViewModel.count > 0 else { return }
+        stackView.frame = NSRect(x: 0, y: 0, width: 220 * comicViewModel.count, height: 175)
         for index in 0..<comicViewModel.count {
             let view = MarvelComicView(frame: NSRect(x: index + 120, y: 0, width: 200, height: 175))
             let comic = comicViewModel[index]!

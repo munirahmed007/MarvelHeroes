@@ -46,6 +46,28 @@ final class MarvelAPIService: MarvelAPIServiceProtocol {
     
     // Handles image caching
     private let imageCache = AutoPurgingImageCache()
+    private var manager = Session()
+    
+    init() {
+        configureSession()
+    }
+    
+    private func manageCachePolicy() {
+        if NetworkReachabilityManager()?.isReachable ?? false {
+            manager.sessionConfiguration.requestCachePolicy = .reloadIgnoringLocalCacheData
+        } else {
+            manager.sessionConfiguration.requestCachePolicy = .returnCacheDataElseLoad
+        }
+    }
+    
+    private func configureSession() {
+        let configuration = URLSessionConfiguration.default
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+        if NetworkReachabilityManager()?.isReachable ?? false {
+            configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+        }
+        manager = Session(configuration: configuration)
+    }
     
     func requestMarvelCharacters(offset: Int? = 0, amount: Int, completion: @escaping(Result<MervelCharacterAPIResponse, Error>) -> Void) {
         performGenericRequest(withPath: charactersEndpoint, offset: offset!, amount: amount, completion: completion)
@@ -67,21 +89,20 @@ final class MarvelAPIService: MarvelAPIServiceProtocol {
             completion(.success(cachedImg))
             return
         }
-        
         AF.request(imgPath,
-                          method: .get,
-                          parameters: defaultParams,
-                          encoding: URLEncoding(destination: .queryString),
-                          headers: nil)
-            .validate()
-            .responseImage { [unowned self] response in
-                switch response.result {
-                case .success(let img):
-                    self.imageCache.add(img, withIdentifier: imgPath)
-                    completion(.success(img))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+                   method: .get,
+                   parameters: defaultParams,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: nil)
+        .validate()
+        .responseImage { [unowned self] response in
+            switch response.result {
+            case .success(let img):
+                self.imageCache.add(img, withIdentifier: imgPath)
+                completion(.success(img))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
     
@@ -90,18 +111,19 @@ final class MarvelAPIService: MarvelAPIServiceProtocol {
         params[MarvelApiConstants.limit] = amount
         params[MarvelApiConstants.offset] = offset
         
-        AF.request(path,
-                          method: .get,
-                          parameters: params,
-                          encoding: URLEncoding(destination: .queryString),
-                          headers: nil)
-            .validate()
-            .responseDecodable(of: MarvelAPIResponse<T>.self) { response in
-                switch response.result {
-                case .success(let response):
-                    completion(.success(response))
-                case .failure(let afError):
-                    completion(.failure(afError as Error))
+        manageCachePolicy()
+        manager.request(path,
+                   method: .get,
+                   parameters: params,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: nil)
+        .validate()
+        .responseDecodable(of: MarvelAPIResponse<T>.self) { response in
+            switch response.result {
+            case .success(let response):
+                completion(.success(response))
+            case .failure(let afError):
+                completion(.failure(afError as Error))
             }
         }
     }
