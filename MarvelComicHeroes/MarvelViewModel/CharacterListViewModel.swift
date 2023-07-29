@@ -25,8 +25,8 @@ enum CharacterAttributeEnum: String {
 }
 
 class CharacterListViewModel: ViewModel {
+    var service: MarvelAPIServiceProtocol  = MarvelAPIService.shared    
     private var characters: [MarvelCharacter]! = []
-    let service = MarvelAPIService.shared
     private var offset = 0
     var delegate: MarvelHeroImageDelegate?
     

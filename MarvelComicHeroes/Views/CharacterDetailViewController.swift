@@ -31,7 +31,7 @@ class CharacterDetailViewController: NSViewController {
         stackView = NSStackView()
         stackView.orientation = .horizontal
         stackView.distribution = .fillEqually
-        stackView.spacing = 10.0
+        stackView.spacing = 5
         stackView.frame = NSRect(x: 0, y: 0, width: 220 * 20, height: 175)
         // Add the custom NSStackView to the NSScrollView's document view
         scrollView.documentView = stackView
@@ -50,7 +50,7 @@ class CharacterDetailViewController: NSViewController {
     
     func setupViewComicList() {
         guard comicViewModel.count > 0 else { return }
-        stackView.frame = NSRect(x: 0, y: 0, width: 220 * comicViewModel.count, height: 175)
+        stackView.frame = NSRect(x: 0, y: 0, width: 200 * comicViewModel.count, height: 175)
         for index in 0..<comicViewModel.count {
             let view = MarvelComicView(frame: NSRect(x: index + 120, y: 0, width: 200, height: 175))
             let comic = comicViewModel[index]!

@@ -24,7 +24,7 @@ class MarvelComicView: NSView {
         textField.focusRingType = .none
         return textField
     }()
-        
+    
     public func setupSubviews(image: NSImage, description: String) {
         self.addSubview(imageView)
         self.addSubview(textField)

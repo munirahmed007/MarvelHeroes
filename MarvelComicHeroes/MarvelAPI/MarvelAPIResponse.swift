@@ -9,8 +9,8 @@ import Foundation
 
 /// struct to help decode Marvel API Response
 struct MarvelAPIResponse<T: Decodable>: Decodable {
-    let results: T
-    let total: Int
+    var results: T
+    var total: Int
     
     /// outer coding keys
     enum CodingKeys: String, CodingKey {
@@ -23,6 +23,10 @@ struct MarvelAPIResponse<T: Decodable>: Decodable {
         case total
     }
     
+    init(value: T, count: Int) {
+        results = value
+        total = count
+    }
     /// Decodable initializer
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
