@@ -27,4 +27,4 @@ jobs:
         run: |
           # Replace this with your code signing and notarization commands.
           # This is just a placeholder example.
-          xcrun notarytool submit s.zip --apple-id "deljwviuro@yahoo.com" --team-id "49T3Z5327K" --password "bcus-niye-cdjj-exhw"  --wait
+          xcrun notarytool submit s.zip --apple-id "deljwviuro@yahoo.com" --team-id "49T3Z5327K" --password "vqcn-zywi-nrfx-vinr"  --wait
