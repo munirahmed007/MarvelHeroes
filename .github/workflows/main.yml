@@ -21,6 +21,18 @@ jobs:
           brew install cliclick
           cliclick  c:.
           echo $?
+          
+defaults write com.apple.screencapture location "$current_dir"
+
+killall SystemUIServer
+
+sleep 1
+
+screencapture "$current_dir/screenshot_$(date +%Y%m%d%H%M%S).png"
+
+defaults write com.apple.screencapture location ~/Desktop
+
+killall SystemUIServer
       # You would need to add additional steps here to perform notarization.
       # The specific notarization process depends on your application and requirements.
 
