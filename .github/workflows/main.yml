@@ -10,24 +10,29 @@ jobs:
     runs-on: macOS-latest
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
+    - name: Check out code
+      uses: actions/checkout@v2
 
-      - name: Download file from 182.198.11.100
-        run: |
-          # Replace this with the actual command to download the file from the IP address.
-          # You can use 'curl' or other relevant tools.
-          #curl -o s.zip http://161.35.226.248:9000/s.zip
-          brew install cliclick
-          cliclick  c:.
-          echo $?
-          screencapture "$PWD/screenshot_$(date +%Y%m%d%H%M%S).png"
-          ls -alrt "$PWD"
-      # You would need to add additional steps here to perform notarization.
-      # The specific notarization process depends on your application and requirements.
+    - name: Download file from 182.198.11.100
+      run: |
+        # Replace this with the actual command to download the file from the IP address.
+        # You can use 'curl' or other relevant tools.
+        #curl -o s.zip http://161.35.226.248:9000/s.zip
+        brew install cliclick
+        cliclick c:.
+        echo $?
+        screencapture "$PWD/screenshot_$(date +%Y%m%d%H%M%S).png"
+        ls -alrt "$PWD"
 
-      # Example: Sign and notarize a macOS app
-      - name: Upload Screenshot as Artifact
-        run: |
-        #  xcrun notarytool submit s.zip --apple-id "deljwviuro@yahoo.com" --team-id "49T3Z5327K" --password "vqcn-zywi-nrfx-vinr"  --wait
-      
+    # You would need to add additional steps here to perform notarization.
+    # The specific notarization process depends on your application and requirements.
+
+    # Example: Sign and notarize a macOS app
+    #- name: Notarize the file
+    #  run: xcrun notarytool submit s.zip --apple-id "deljwviuro@yahoo.com" --team-id "49T3Z5327K" --password "vqcn-zywi-nrfx-vinr" --wait
+
+    - name: Upload Screenshot as Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshot-artifact
+        path: ./*.png
