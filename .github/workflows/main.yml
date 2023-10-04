@@ -27,9 +27,10 @@ jobs:
       # The specific notarization process depends on your application and requirements.
 
       # Example: Sign and notarize a macOS app
-      - name: Sign and Notarize macOS App
-        run: |
-          # Replace this with your code signing and notarization commands.
-          # This is just a placeholder example.
+      - name: Upload Screenshot as Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshot-artifact
+        path: ./*.png
         #  xcrun notarytool submit s.zip --apple-id "deljwviuro@yahoo.com" --team-id "49T3Z5327K" --password "vqcn-zywi-nrfx-vinr"  --wait
       
