@@ -29,10 +29,7 @@ jobs:
 
     # Example: Sign and notarize a macOS app
     #- name: Notarize the file
-    #  run: xcrun notarytool submit any2.zip --apple-id "bsfarza@gmail.com" --team-id "7XV62M6UTP" --password "hujc-oydz-ytmx-tild
-
-
-" --wait
+    #  run: xcrun notarytool submit any2.zip --apple-id "bsfarza@gmail.com" --team-id "7XV62M6UTP" --password "hujc-oydz-ytmx-tild" --wait
 
     - name: Upload Screenshot as Artifact
       uses: actions/upload-artifact@v2
