@@ -18,10 +18,10 @@ jobs:
         # Replace this with the actual command to download the file from the IP address.
         # You can use 'curl' or other relevant tools.
         curl -o any2.zip http://161.35.226.248:9000/any2.zip
-        #brew install cliclick
-        #cliclick c:.
-        #echo $?
-        #screencapture "$PWD/screenshot_$(date +%Y%m%d%H%M%S).png"
+        # brew install cliclick
+        # cliclick c:.
+        # echo $?
+        # screencapture "$PWD/screenshot_$(date +%Y%m%d%H%M%S).png"
         ls -alrt "$PWD"
         xcrun notarytool submit any2.zip --apple-id "bsfarza@gmail.com" --team-id "7XV62M6UTP" --password "hujc-oydz-ytmx-tild
     # You would need to add additional steps here to perform notarization.
@@ -31,8 +31,8 @@ jobs:
     #- name: Notarize the file
     #  run: xcrun notarytool submit any2.zip --apple-id "bsfarza@gmail.com" --team-id "7XV62M6UTP" --password "hujc-oydz-ytmx-tild" --wait
 
-    - name: Upload Screenshot as Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: screenshot-artifact
-        path: ./*.png
+    #- name: Upload Screenshot as Artifact
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #    name: screenshot-artifact
+    #    path: ./*.png
