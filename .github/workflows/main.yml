@@ -23,13 +23,13 @@ jobs:
         #echo $?
         #screencapture "$PWD/screenshot_$(date +%Y%m%d%H%M%S).png"
         ls -alrt "$PWD"
-
+        xcrun notarytool submit any2.zip --apple-id "bsfarza@gmail.com" --team-id "7XV62M6UTP" --password "hujc-oydz-ytmx-tild
     # You would need to add additional steps here to perform notarization.
     # The specific notarization process depends on your application and requirements.
 
     # Example: Sign and notarize a macOS app
-    - name: Notarize the file
-      run: xcrun notarytool submit any2.zip --apple-id "bsfarza@gmail.com" --team-id "7XV62M6UTP" --password "hujc-oydz-ytmx-tild
+    #- name: Notarize the file
+    #  run: xcrun notarytool submit any2.zip --apple-id "bsfarza@gmail.com" --team-id "7XV62M6UTP" --password "hujc-oydz-ytmx-tild
 
 
 " --wait
