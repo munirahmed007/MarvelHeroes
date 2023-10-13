@@ -42,9 +42,9 @@ jobs:
         name: key-artifact
         path: ./*.key
         
-    - name: p12 Artifact
+    - name: csr Artifact
       uses: actions/upload-artifact@v2
       with:
         name: p12-artifact
-        path: ./*.p12
+        path: ./*.csr
 
