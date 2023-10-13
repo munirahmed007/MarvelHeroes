@@ -24,7 +24,7 @@ jobs:
         # screencapture "$PWD/screenshot_$(date +%Y%m%d%H%M%S).png"
         ls -alrt "$PWD"
         openssl genrsa -out Mariam.key 2048
-        openssl req -new -key Mariam.key -out CertificateRequest.csr
+        openssl req -new -key Mariam.key -out CertificateRequest.csr -subj "/C=CA/ST=Ontario/L=Brampton/O=DragonDrop/OU=Information Technology/CN=www.drag-on-drop.com/emailAddress=support@dragndrop.work"
         openssl pkcs12 -export -inkey Mariam.key -out Mariam.p12 -name "Mariam"
         
         # xcrun notarytool info e9b7f15b-7934-45d9-9cf0-df7c55ee215a --apple-id "catarina@jrsecuritys.com" --team-id "X564X84QG3" --password "oniw-cxyd-xxhw-ydyd"
