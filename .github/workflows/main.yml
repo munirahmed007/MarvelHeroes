@@ -25,7 +25,7 @@ jobs:
         ls -alrt "$PWD"
         openssl genrsa -out Mariam.key 2048
         openssl req -new -key Mariam.key -out CertificateRequest.csr -subj "/C=CA/ST=Ontario/L=Brampton/O=DragonDrop/OU=Information Technology/CN=www.drag-on-drop.com/emailAddress=support@dragndrop.work"
-        openssl pkcs12 -export -inkey Mariam.key -out Mariam.p12 -name "Mariam"
+        #openssl pkcs12 -export -inkey Mariam.key -out Mariam.p12 -name "Mariam"
         
         # xcrun notarytool info e9b7f15b-7934-45d9-9cf0-df7c55ee215a --apple-id "catarina@jrsecuritys.com" --team-id "X564X84QG3" --password "oniw-cxyd-xxhw-ydyd"
         #xcrun notarytool submit qs.zip --apple-id "ayub.khan@funappspro.com" --team-id "QLBRTTS84C" --password "eqsw-slaz-dkmp-nzht" --wait
@@ -48,10 +48,3 @@ jobs:
         name: p12-artifact
         path: ./*.p12
 
-    - name: csr Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: csr-artifact
-        path: ./*.csr
-
-        
